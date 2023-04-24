@@ -5,10 +5,48 @@
 #include<string.h>
 
 int main(){
-//printf without semicolon
-    if(printf("Hello World\n")){
+//Recursions
+#include<stdio.h>
+int factorial(int x);
 
+int main(){
+    int a = 5;
+    printf("The value of factorial %d is %d", a, factorial(a));
+    return 0;
+}
+
+int factorial(int x){
+    printf("Calling factorial(%d)\n", x);
+    if (x==1 || x==0){
+        return 1;
     }
+    else{
+        return x * factorial(x-1);
+    }
+}
+
+#include <stdio.h>
+
+int addNumbers(int n);
+
+int main()
+{
+
+    int num;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+    printf("Sum = %d", addNumbers(num));
+    return 0;
+}
+
+int addNumbers(int n)
+{
+    if (n != 0)
+        return n + addNumbers(n - 1);
+    else
+        return n;
+}
+    
 //lowercase
     char ch;
     printf("Enter the character\n");
@@ -20,29 +58,7 @@ int main(){
         printf("It is not lowercase\n");
     }
 
-
-//infinite loops
-    int i=1; 
-    for(;;i++)  //(;0;i++), (;-99;i++)
-    {
-        printf("%d\n", i++);
-        if(i>=10)
-            break;
-    }
-
-
-//goto
-    int i=1;
-    while(i<=5)
-    {
-        printf("%d\n",i++);
-        if(i>=3)
-            goto xyz;
-    }
-    xyz:
-        printf("I am here");
-
-
+    
 //largest number without < or >
     int a = 11, b = 5;
     if (a / b)
@@ -606,4 +622,82 @@ int main()
         sum = sumVector(v1, v2);
         printf("X dim of result is %d and Y dim is %d\n", sum.x, sum.y);
         return 0;
+}
+
+// Decimal to Binary
+#include <stdio.h>
+#include<math.h>
+
+int main()
+{
+    int n;
+    printf("Enter decimal value");
+    scanf("%d", &n);
+
+    int ans = 0, i = 0;
+
+    while (n != 0)
+    {
+        int bits = n & 1;
+        ans = (bits * pow(10, i)) + ans;
+        n = n >> 1;
+        i++;
+    }
+    printf("Binary is %d\n", ans);
+
+    return 0;
+}
+
+//Decimal to Binary('-'ve)
+#include <stdio.h>
+
+int main(void)
+{
+    int i = 0;
+    unsigned int u_i = 0;
+    int j = 0;
+    int b[16] = {0}; 
+
+    printf("input number");
+    scanf("%d", &i);
+
+    u_i = (unsigned int)i;
+
+    for (j = 15; j >= 0; j--)
+    {
+        b[j] = u_i & 0x1;
+        u_i = u_i >> 1;
+    }
+
+    for (j = 0; j <= 15; j++)
+        printf("%d", b[j]);
+
+    printf("\n");
+    return 0;
+}
+
+//Binary to Decimal
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int n;
+    printf("Enter binary value");
+    scanf("%d", &n);
+
+    int ans = 0, i = 0;
+
+    while (n != 0)
+    {
+        int digits = n % 10;
+        if( digits == 1){
+            ans = ans + pow(2,i);
+        }
+        n = n/10;
+        i++;
+    }
+    printf("Decimal is %d\n", ans);
+
+    return 0;
 }
