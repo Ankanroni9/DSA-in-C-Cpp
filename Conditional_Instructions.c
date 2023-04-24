@@ -175,6 +175,11 @@ int main(){
         }
         exit(0);
     }
+    
+//printf without semicolon
+    if(printf("Hello World\n")){
+
+    }
 
     return 0;
 }
