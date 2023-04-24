@@ -1,2 +1,2 @@
-# DSA-in-C-Cpp
-DSA codes in C/C++
+# C-Cpp
+C-Cpp codes
