@@ -124,6 +124,26 @@ int main()
     //     // a = 6;
     //     return 0;
     // }
+    
+//infinite loops
+    int i=1; 
+    for(;;i++)  //(;0;i++), (;-99;i++)
+    {
+        printf("%d\n", i++);
+        if(i>=10)
+            break;
+    }
+
+//goto
+    int i=1;
+    while(i<=5)
+    {
+        printf("%d\n",i++);
+        if(i>=3)
+            goto xyz;
+    }
+    xyz:
+        printf("I am here");
 
     return 0;
 }
